@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "api/*.py", "use": "@vercel/python" },
+    { "src": "public/**", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/api/bookings", "dest": "/api/bookings.py" },
+    { "src": "/api/properties", "dest": "/api/properties.py" },
+    { "src": "/api/messages", "dest": "/api/messages.py" },
+    { "src": "/api/messages/(.*)", "dest": "/api/messages.py" },
+    { "src": "/api/conversations/(.*)", "dest": "/api/messages.py" },
+    { "src": "/api/stats", "dest": "/api/stats.py" },
+    { "src": "/api/alerts", "dest": "/api/alerts.py" },
+    { "src": "/api/alerts/(.*)", "dest": "/api/alerts.py" },
+    { "src": "/(.*)", "dest": "/public/$1" }
+  ]
+}
